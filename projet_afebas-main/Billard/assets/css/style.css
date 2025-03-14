@@ -102,68 +102,32 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  height: 70px;
+  background: rgba(0, 0, 0, 0.9);
   transition: all 0.5s;
   z-index: 997;
-  transition: all 0.5s;
-  background: black;
-}
-#header.fixed-top {
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
 }
 
-input[type="text"] {
-  padding: 8px;
-  width: 186px;
-  border: none;
-  border-radius: 4px;
-  margin-left: 20px;
-  border-color: black;
-  
-  border: 2px;
- 
+#header.header-scrolled {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 10px 0;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: transparent;
-  color: white;
-  border: 2px solid white;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-button:hover {
-  background-color:#850303;
-  color: white;
-  border: 2px solid #850303;
-}
-
-
-#header .logo h1 {
+#header .logo {
   font-size: 28px;
   margin: 0;
-  padding: 10px 0;
-  line-height: 1;
-  font-weight: 400;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-#header .logo h1 a, #header .logo h1 a:hover {
-  color: #850303;
-  text-decoration: none;
-}
-#header .logo img {
   padding: 0;
-  margin: 0;
-  max-height: 64px;
-    background-image: url(assets/img/Messenger_creation_E663EDF5-64CF-4BD9-B8E0-A04F5473A3FF.jpeg);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
-.scrolled-offset {
-  margin-top: 70px;
+#header .logo a {
+  color: #fff;
+}
+
+#header .logo img {
+  max-height: 40px;
 }
 
 /*--------------------------------------------------------------
@@ -175,6 +139,7 @@ button:hover {
 .navbar {
   padding: 0;
 }
+
 .navbar ul {
   margin: 0;
   padding: 0;
@@ -182,44 +147,62 @@ button:hover {
   list-style: none;
   align-items: center;
 }
+
 .navbar li {
   position: relative;
 }
+
+.navbar > ul > li {
+  white-space: nowrap;
+  padding: 10px 0 10px 24px;
+}
+
 .navbar a, .navbar a:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0 10px 20px;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
   font-size: 15px;
-  color: white;
+  padding: 0 4px;
   white-space: nowrap;
-  text-transform: uppercase;
   transition: 0.3s;
+  letter-spacing: 0.4px;
+  position: relative;
 }
+
 .navbar a i, .navbar a:focus i {
   font-size: 12px;
   line-height: 0;
   margin-left: 5px;
 }
+
+.navbar > ul > li > a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  background-color: #e03a3c;
+  visibility: hidden;
+  width: 0px;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.navbar a:hover:before, .navbar li:hover > a:before, .navbar .active:before {
+  visibility: visible;
+  width: 100%;
+}
+
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: #850303;
-  text-decoration-line: underline;
-}
-.navbar .getstarted, .navbar .getstarted:focus {
-  background: #850303;
-  padding: 8px 20px;
-  margin-left: 30px;
-  border-radius: 4px;
   color: #fff;
 }
-.navbar .getstarted:hover, .navbar .getstarted:focus:hover {
-  color: #fff;
-  /*background: #fd490f;*/
-}
+
 .navbar .dropdown ul {
   display: block;
   position: absolute;
-  left: 14px;
+  left: 24px;
   top: calc(100% + 30px);
   margin: 0;
   padding: 10px 0;
@@ -229,39 +212,50 @@ button:hover {
   background: #fff;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   transition: 0.3s;
+  border-radius: 4px;
 }
+
 .navbar .dropdown ul li {
   min-width: 200px;
 }
+
 .navbar .dropdown ul a {
   padding: 10px 20px;
-  font-size: 13px;
+  font-size: 14px;
   text-transform: none;
   font-weight: 500;
-  color: #581601;
+  color: #2c4964;
 }
+
 .navbar .dropdown ul a i {
   font-size: 12px;
 }
+
 .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
-  color: #850303;
+  color: #e03a3c;
 }
+
 .navbar .dropdown:hover > ul {
   opacity: 1;
   top: 100%;
   visibility: visible;
 }
+
 .navbar .dropdown .dropdown ul {
   top: 0;
   left: calc(100% - 30px);
   visibility: hidden;
 }
+
 .navbar .dropdown .dropdown:hover > ul {
   opacity: 1;
   top: 0;
   left: 100%;
   visibility: visible;
 }
+
+
+
 @media (max-width: 1366px) {
   .navbar .dropdown .dropdown ul {
     left: -90%;
@@ -275,13 +269,14 @@ button:hover {
 * Mobile Navigation 
 */
 .mobile-nav-toggle {
-  color: white;
+  color: #fff;
   font-size: 28px;
   cursor: pointer;
   display: none;
   line-height: 0;
   transition: 0.5s;
 }
+
 .mobile-nav-toggle.bi-x {
   color: #fff;
 }
@@ -294,74 +289,87 @@ button:hover {
   .navbar ul {
     display: none;
   }
+
+  .navbar-mobile {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(28, 47, 65, 0.9);
+    transition: 0.3s;
+    z-index: 999;
+  }
+
+  .navbar-mobile .mobile-nav-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .navbar-mobile ul {
+    display: block;
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    padding: 10px 0;
+    border-radius: 10px;
+    background-color: #000;
+    overflow-y: auto;
+    transition: 0.3s;
+  }
+
+  .navbar-mobile a {
+    padding: 10px 20px;
+    font-size: 15px;
+    color: #ffffff;
+  }
+
+  .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
+    color: #e03a3c;
+  }
+
+  .navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
+    margin: 15px;
+  }
+
+  .navbar-mobile .dropdown ul {
+    position: static;
+    display: none;
+    margin: 10px 20px;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  }
+
+  .navbar-mobile .dropdown ul li {
+    min-width: 200px;
+  }
+
+  .navbar-mobile .dropdown ul a {
+    padding: 10px 20px;
+  }
+
+  .navbar-mobile .dropdown ul a i {
+    font-size: 12px;
+  }
+
+  .navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
+    color: #e03a3c;
+  }
+
+  .navbar-mobile .dropdown > .dropdown-active {
+    display: block;
+  }
 }
-.navbar-mobile {
-  position: fixed;
-  overflow: hidden;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background: rgba(14, 11, 10, 0.9);
-  transition: 0.3s;
-  z-index: 999;
-}
-.navbar-mobile .mobile-nav-toggle {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-.navbar-mobile ul {
-  display: block;
-  position: absolute;
-  top: 55px;
-  right: 15px;
-  bottom: 15px;
-  left: 15px;
-  padding: 10px 0;
-  background-color: #fff;
-  overflow-y: auto;
-  transition: 0.3s;
-  height: 300px;
-  
-}
-.navbar-mobile a, .navbar-mobile a:focus {
-  padding: 10px 20px;
-  font-size: 15px;
-  color: #581601;
-}
-.navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #850303;
-}
-.navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
-  margin: 15px;
-}
-.navbar-mobile .dropdown ul {
-  position: static;
-  display: none;
-  margin: 10px 20px;
-  padding: 10px 0;
-  z-index: 99;
-  opacity: 1;
-  visibility: visible;
-  background: #fff;
-  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-}
-.navbar-mobile .dropdown ul li {
-  min-width: 200px;
-}
-.navbar-mobile .dropdown ul a {
-  padding: 10px 20px;
-}
-.navbar-mobile .dropdown ul a i {
-  font-size: 12px;
-}
-.navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
-  color: #850303;
-}
-.navbar-mobile .dropdown > .dropdown-active {
-  display: block;
-}
+
+
 
 /*--------------------------------------------------------------
 # Hero Section
@@ -1703,37 +1711,46 @@ section {
 .blog .sidebar .search-form form {
   background: #fff;
   border: 1px solid #ddd;
-  padding: 3px 10px;
+  padding: 5px 10px;
   position: relative;
+  border-radius: 20px;
 }
+
 .blog .sidebar .search-form form input[type=text] {
   border: 0;
-  padding: 4px;
-  border-radius: 4px;
-  width: calc(100% - 40px);
+  padding: 6px 12px 6px 40px;
+  border-radius: 20px;
+  width: 100%;
+  font-size: 14px;
 }
+
+.blog .sidebar .search-form form input[type=text]:focus {
+  outline: none;
+}
+
 .blog .sidebar .search-form form button {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
   border: 0;
   background: none;
-  font-size: 16px;
-  padding: 0 15px;
-  margin: -1px;
-  background: #850303;
-  color: #fff;
-  transition: 0.3s;
-  border-radius: 0 4px 4px 0;
-  line-height: 0;
+  font-size: 18px;
+  padding: 0;
+  color: #850303;
+  transition: color 0.3s;
+  line-height: 1;
 }
-.blog .sidebar .search-form form button i {
-  line-height: 0;
-}
+
 .blog .sidebar .search-form form button:hover {
-  background: #fd4509;
+  color: #fd4509;
 }
+
+.blog .sidebar .search-form form button i {
+  line-height: 1;
+}
+
+
 .blog .sidebar .categories ul {
   list-style: none;
   padding: 0;

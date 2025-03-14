@@ -1,9 +1,12 @@
 
   body {
+      background-image: url('../img/ball.jpg');
+      background-size: auto;
       display: flex;
       flex-direction: column;
       justify-content: center;
       margin: 0; /* Supprime les marges du body */
+      
   
   }
   h1 {
@@ -35,8 +38,8 @@
       margin: 0 10px; /* Réduit les marges sur les côtés */
   }
   .match, select {
-      width: 120px; /* Réduit la largeur des cases */
-      height: 40px; /* Réduit la hauteur des cases */
+      width: 80px; /* Réduit la largeur des cases */
+      height: 60px; /* Réduit la hauteur des cases */
       background: white;
       border: 2px solid black;
       margin: 18px 5px; /* Réduit les marges en haut et en bas */
@@ -53,10 +56,10 @@
       margin: 0 20px; /* Espace entre les deux brackets */
   }
   .vs {
-      color: black;
+      color: #fff;
       font-size: 100px;
       font-weight: bold;
-      margin: 0 100px; /* Espace autour du texte VS */
+      margin: 0 150px; /* Espace autour du texte VS */
   }
   .save-button {
       margin-top: 20px;
@@ -72,6 +75,7 @@
   .save-button:hover {
       background-color: #0056b3;
   }
+  
 
   /* Media Queries for Responsiveness */
   @media (max-width: 1200px) {
